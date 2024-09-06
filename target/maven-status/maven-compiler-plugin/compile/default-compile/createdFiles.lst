@@ -1,0 +1,8 @@
+com\heroentreprise\baseProjectSecurity\config\PrivateFilter.class
+com\heroentreprise\baseProjectSecurity\entity\UserEntity.class
+com\heroentreprise\baseProjectSecurity\controller\LoginServlet.class
+com\heroentreprise\baseProjectSecurity\controller\LogoutServlet.class
+com\heroentreprise\baseProjectSecurity\controller\WelcomeServlet.class
+com\heroentreprise\baseProjectSecurity\config\HibernateUtil.class
+com\heroentreprise\baseProjectSecurity\config\PropertiesReader.class
+com\heroentreprise\baseProjectSecurity\config\PasswordHashing.class

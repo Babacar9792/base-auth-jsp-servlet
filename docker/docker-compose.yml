@@ -1,0 +1,36 @@
+version: '3.9'
+
+
+services:
+  mysql-base-security:
+    image: mysql:8.0
+    container_name: mysql_8_for_base_securty
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: securitydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: passer123@
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_data_base_security:/var/lib/mysql
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+
+  phpmyadmin-base_security:
+    container_name: phpmyadmin_for_base_securty
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8088:80
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      PMA_HOST: mysql-base-security
+      PMA_USER: user
+      PMA_PASSWORD: passer123@
+    depends_on:
+      - mysql-base-security
+    restart: unless-stopped
+
+volumes:
+  mysql_data_base_security:
+    driver: local
